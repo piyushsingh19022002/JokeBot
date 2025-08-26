@@ -5,11 +5,13 @@ dotenv.config();
 
 const bot = new TelegramBot(process.env.TELEGRAM_BOT,{polling:true}); 
 // polling true means continually checking for response
-// bot.on('message',(option)=>{
-//     console.log("Message is received");
-//     console.log(option);
-//     bot.sendMessage(option.chat.id,"Hello how can i help you?")// give reponse as chat
-// })
+bot.on('message'  ,(option)=>{
+    if(option.text!=='/joke'){
+        console.log("Message is received");
+        console.log(option);
+        bot.sendMessage(option.chat.id,"Hello how can i help you?")// give reponse as chat
+    }   
+})
 // this event will triger whenever a message is received 
 // this option so many thing observe carefully
 
